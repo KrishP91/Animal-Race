@@ -41,43 +41,6 @@ public class Race extends JFrame {
 		input = getRacer(); // get input from user
 
 		while (input != 's' && input != 'S') {
-			/* 1. ***** Student write this switch statement 
-			 * input local char variable contains the racer type
-			 * entered by the user.
-			 * If input is 'T' or 't',
-			 * 	add a Tortoise object to the ArrayList named racerList
-			 * 	which is an instance variable of this class.
-			 * The API of the Tortoise constructor is:
-			 * 	Tortoise( String ID, int startX, int startY )
-			 * a sample call to the constructor is
-			 * 	new Tortoise( "Tortoise". START_LINE, yPos )
-			 * 	where START_LINE is a constant local variable
-			 * 		representing the starting x position for the race
-			 * 	and yPos is a local variable representing the next
-			 * 		racer's y position
-			 * 
-			 * If input is 'H' or 'h',
-			 * 	add a Hare object to the ArrayList name racerList.
-			 * The API of the Tortoise constructor is:
-			 * 	Hare( String ID, int startX, int startY )
-			 * a sample call to the constructor is
-			 * 	new Hare( "Hare". START_LINE, yPos )
-			 * 	where START_LINE is a constant local variable
-			 * 		representing the starting x position for the race
-			 * 	and yPos is a local variable representing the next
-			 * 		racer's y position
-			 * 
-			 * After adding a racer to the ArrayList racerList,
-			 * 	increment yPos by the value of the 
-			 * 	constant local variable RACER_SPACE
-			 * 
-			 * If input is anything other than 'T','t','H', or 'h', 
-			 * 	pop up an error dialog box
-			 * A sample method call for the output dialog box is :
-			 * 	JOptionPane.showMessageDialog( this, "Message" );
-			 * 	
-			 */
-			// write your switch statement here
 			switch (input) {
 				case 'T': racerList.add(new Tortoise("Tortoise", START_LINE, yPos));
 						  yPos += RACER_SPACE;
@@ -106,7 +69,6 @@ public class Race extends JFrame {
 				default: JOptionPane.showMessageDialog(this, "Error: Enter a valid character.");					
 			}
 				
-			/** end of student code, Part 1 */
 
 			repaint();
 			input = getRacer(); // get input from user
@@ -132,44 +94,22 @@ public class Race extends JFrame {
 			g.drawLine(finishX, 0, finishX, getHeight());
 
 			if (raceIsOn) {
-				/* 2. ***** student writes this code
-				 * Loop through instance variable ArrayList racerList, 
-				 * 	which contains Racer object references, 
-				 * 	calling move, and then draw for each racer.
-				 * The API for move is:
-				 * 	void move( )
-				 * The API for draw is:
-				 * 	void draw( Graphics g )
-				 * 		where g is the Graphics context passed to
-				 * 		the paint method
-				 */
-				// student code goes here
+				
 				for (Racer i : racerList) {
 					i.move();
 					i.draw(g);
 					
 				}
 
-				/** end of student code, part 2 */
 				
 			} else // display racers before race begins
 			{
 
-				/* 3. ***** Student writes this code
-				 * Loop through instance variable ArrayList racerList, 
-				 * 	which contains Racer object references, 
-				 * 	calling draw for each element. (Do not call move!)
-				 * The API for draw is:
-				 * 	void draw( Graphics g )
-				 * 		where g is the Graphics context
-				 * 		passed to this paint method
-				 */
-				// student code goes here
+				
 				for (Racer i : racerList) {
 					i.draw(g);
 				}
 				
-				/** end of student code, part 3 */
 			}
 		}
 	}
